@@ -1,4 +1,4 @@
-{% set version = "1.8.3" %}
+{% set version = "1.8.6" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/doRNG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/doRNG/doRNG_{{ version }}.tar.gz
-  sha256: 8c84046970568a7b4eade1e5ba629f967cf061c8365a5e997e4f196688f11fab
+  sha256: 5032ade083f1f9841ac2e8d4426faa07f189c25c0c338fa155c5dadbe5507de2
 
 build:
   noarch: generic
