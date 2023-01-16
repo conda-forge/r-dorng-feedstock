@@ -1,5 +1,4 @@
 {% set version = "1.8.6" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,27 +7,28 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: doRNG_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/doRNG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/doRNG/doRNG_{{ version }}.tar.gz
   sha256: 5032ade083f1f9841ac2e8d4426faa07f189c25c0c338fa155c5dadbe5507de2
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
-# Suggests: doParallel, doMPI, doRedis, rbenchmark, devtools, knitr, bibtex, testthat
 requirements:
+  build:
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-foreach
     - r-iterators
     - r-rngtools >=1.5
-
   run:
     - r-base
     - r-foreach
