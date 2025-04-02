@@ -1,4 +1,4 @@
-{% set version = "1.8.6.1" %}
+{% set version = "1.8.6.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/doRNG_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/doRNG/doRNG_{{ version }}.tar.gz
-  sha256: 0edff0a5b91772d6e0e61ae537cb505fa2be87a2cdc2e936e86cf2d8078e7c49
+  sha256: 6683baec10cf8f6a44620d95ef06fec60b3f7911100827e392774a2ebdad7e8c
 
 build:
   number: 0
